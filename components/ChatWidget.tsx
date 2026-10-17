@@ -77,10 +77,7 @@ export default function ChatWidget() {
 
     const result = [
       `Wstępna wycena: ${estimate}`,
-      `Usługa: ${service}`,
-      `Samochód: ${car.trim() || "nie podano"}${year.trim() ? ` (${year.trim()})` : ""}`,
       note,
-      details.trim() ? `Uwzględniony opis: ${details.trim()}` : "",
       "To szacunek informacyjny, nie wiążąca oferta. Aktualny zakres i cenę potwierdź w studiu.",
     ].filter(Boolean).join("\n");
 
