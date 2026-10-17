@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
 import { business, services } from "@/lib/chatbot-data";
 
@@ -30,6 +30,14 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<Tab>("start");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [galleryFilter, setGalleryFilter] = useState<"all" | "lakier" | "wnetrze" | "blask">("all");
+  const [videoPaused, setVideoPaused] = useState(false);
+  const [showTopButton, setShowTopButton] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShowTopButton(window.scrollY > 420);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const galleryCategories = ["blask", "lakier", "blask", "blask", "wnetrze", "wnetrze"] as const;
   const visiblePhotos = photos.map((photo, index) => ({ ...photo, index, category: galleryCategories[index] })).filter(photo => galleryFilter === "all" || photo.category === galleryFilter);
   const tabItems: { id: Tab; label: string }[] = [
@@ -55,6 +63,7 @@ export default function Home() {
         <div className="premium-hero-content"><span className="premium-eyebrow"><i /> DETAILING SAMOCHODOWY · LUBIN</span><h1>Charakter auta.<br /><em>Wydobyty w detalu.</em></h1><p>Polerowanie lakieru, pielęgnacja wnętrza i dbałość o wykończenie. Zobacz, co możemy zrobić dla Twojego samochodu.</p><div className="premium-actions"><button className="premium-primary" onClick={() => go("uslugi")}>Poznaj usługi <span>↗</span></button><button className="premium-secondary" onClick={() => go("galeria")}>Zobacz galerię <span>↗</span></button></div></div>
         <div className="premium-hero-bottom"><span>PRECYZJA W KAŻDYM RUCHU</span><span>01 — 05</span></div>
         <div className="video-credit">Wideo poglądowe · Pexels</div>
+        <button className="premium-video-toggle" onClick={() => { const video = document.querySelector<HTMLVideoElement>(".hero-video"); if (!video) return; if (videoPaused) { void video.play(); setVideoPaused(false); } else { video.pause(); setVideoPaused(true); } }} aria-label={videoPaused ? "Odtwórz film w tle" : "Zatrzymaj film w tle"}>{videoPaused ? "▶ ODTWÓRZ FILM" : "Ⅱ ZATRZYMAJ FILM"}</button>
       </section>
       <div className="premium-strip"><span>PAINT CORRECTION</span><b>✳</b><span>INTERIOR CARE</span><b>✳</b><span>PROTECT & SHINE</span><b>✳</b><span>UNLIM CAR SPA</span></div>
       <section className="premium-audi-feature"><div className="premium-audi-copy"><span className="premium-eyebrow"><i /> DETALING · PRECYZJA · POŁYSK</span><h2>Niech robi<br/><em>wrażenie.</em></h2><p>Każdy refleks, każda linia nadwozia i każdy detal mają znaczenie. Dobierzemy pielęgnację do charakteru Twojego auta.</p><button className="premium-text-link" onClick={() => go("galeria")}>Zobacz realizacje <span>↗</span></button></div><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1400&q=85" alt="Sportowe Audi w ciemnej, eleganckiej scenerii" loading="lazy" onError={(event)=>{event.currentTarget.src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85";}}/><span className="premium-audi-caption">SPORT / DESIGN / DETAIL <b>UNLIM CAR SPA</b></span></section>
@@ -72,6 +81,7 @@ export default function Home() {
 
     <footer className="premium-footer"><button className="premium-brand" onClick={() => go("start")}><span className="premium-logo">U<span>.</span></span><span>UNLIM <b>CAR SPA</b><small>CAR CARE STUDIO · LUBIN</small></span></button><span>Staranność, którą widać.</span><span>© {new Date().getFullYear()} UNLIM CAR SPA</span><a href="/panel-wlasciciela">Panel właściciela ↗</a><a href={business.booking} target="_blank" rel="noreferrer">Booksy ↗</a></footer>
     {lightbox !== null && <div className="premium-lightbox" role="dialog" aria-modal="true" aria-label="Powiększone zdjęcie" onClick={() => setLightbox(null)}><button className="premium-lightbox-close" onClick={() => setLightbox(null)} aria-label="Zamknij">×</button><button className="premium-lightbox-prev" onClick={e => { e.stopPropagation(); setLightbox((lightbox + photos.length - 1) % photos.length); }} aria-label="Poprzednie zdjęcie">←</button><img src={photos[lightbox].src} alt={photos[lightbox].alt} onClick={e => e.stopPropagation()} /><button className="premium-lightbox-next" onClick={e => { e.stopPropagation(); setLightbox((lightbox + 1) % photos.length); }} aria-label="Następne zdjęcie">→</button><span>{lightbox + 1} / {photos.length}</span></div>}
+    {showTopButton && <button className="premium-back-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} aria-label="Wróć na górę strony"><span>↑</span><small>NA GÓRĘ</small></button>}
     <ChatWidget />
   </main>;
 }
