@@ -318,13 +318,11 @@
 .premium-site .premium-service-card:hover .premium-service-photo img{transform:scale(1.06)}
 .premium-site .premium-service-photo>span{transition:color .25s ease}
 .premium-site .premium-service-card:hover .premium-service-photo>span{color:#ff4554}
-.premium-video-toggle{position:absolute;z-index:4;right:clamp(20px,5.4%,80px);bottom:68px;border:1px solid #ffffff55;background:#090a0bcc;color:#fff;padding:11px 13px;font-size:8px;letter-spacing:.13em;backdrop-filter:blur(8px);transition:background .2s,border-color .2s,transform .2s}
-.premium-video-toggle:hover{background:#e32636;border-color:#e32636;transform:translateY(-2px)}
 .premium-back-top{position:fixed;right:22px;bottom:24px;z-index:50;display:flex;align-items:center;gap:10px;padding:11px 14px;background:#101011eF;border:1px solid #e32636;color:#fff;box-shadow:0 8px 28px #0006;animation:premium-rise .25s ease both}
 .premium-back-top span{font-size:20px;color:#ff4554}.premium-back-top small{font-size:8px;letter-spacing:.15em}
 @keyframes premium-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .premium-site button:focus-visible,.premium-site a:focus-visible{outline:2px solid #ff4554;outline-offset:4px}
-@media(max-width:700px){.premium-video-toggle{right:18px;bottom:58px;padding:9px 10px;font-size:7px}.premium-back-top{right:12px;bottom:14px}.premium-site .premium-nav nav button:after{bottom:-4px}}
+@media(max-width:700px){.premium-back-top{right:12px;bottom:14px}.premium-site .premium-nav nav button:after{bottom:-4px}}
 @media(prefers-reduced-motion:reduce){.premium-site .premium-brand,.premium-site .premium-nav nav button,.premium-site .premium-primary,.premium-site .premium-secondary,.premium-site .premium-text-link,.premium-site .premium-service-link,.premium-site .premium-book,.premium-site .premium-gallery-item img,.premium-site .premium-service-photo img,.premium-back-top{transition:none;animation:none}}
 
 .premium-video-error{position:absolute;z-index:4;left:clamp(20px,5.4%,80px);bottom:68px;max-width:300px;padding:10px 12px;background:#101011eF;border-left:2px solid #e32636;color:#fff;font-size:10px;line-height:1.5}
