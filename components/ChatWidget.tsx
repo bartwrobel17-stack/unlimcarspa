@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import { answerQuestion, business } from "@/lib/chatbot-data";
 
 type Message = { from: "bot" | "user"; text: string };
@@ -56,7 +56,7 @@ export default function ChatWidget() {
     "Proszę o informację o orientacyjnej cenie, zakresie prac i dostępnych terminach. Dziękuję!",
   ].join("\n");
 
-  async function prepareQuote(e: React.FormEvent<HTMLFormElement>) {
+  async function prepareQuote(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setMessages(old => [...old,
       { from: "user", text: "Chcę przygotować zapytanie o wycenę." },
