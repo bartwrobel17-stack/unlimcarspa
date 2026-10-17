@@ -65,11 +65,11 @@ export default function ChatWidget() {
         ? "Booksy podaje czyszczenie tapicerki skórzanej od 500 zł. Ostateczna cena zależy od wielkości auta i zakresu."
         : "Booksy podaje pranie tapicerki materiałowej od 100 zł; to cena początkowa, a nie gwarantowana cena za całe auto.";
     } else if (service === "Polerowanie lakieru") {
-      estimate = "wymaga indywidualnej wyceny";
-      note = "Cena polerowania zależy od stanu lakieru i zakresu korekty. Nie mam potwierdzonej aktualnej kwoty dla tej usługi, więc nie będę jej zgadywać.";
+      estimate = "od 1 000 zł";
+      note = "Booksy podaje jednoetapową korektę lakieru od 1 000 zł dla samochodu osobowego. Ostateczna cena zależy od wielkości auta i stanu lakieru.";
     } else if (service === "Powłoka ceramiczna / zabezpieczenie lakieru") {
-      estimate = "wymaga indywidualnej wyceny";
-      note = "Cena zależy od przygotowania lakieru, wybranego zabezpieczenia i wielkości auta. Powłoka polimerowa w pakiecie to inna usługa niż powłoka ceramiczna.";
+      estimate = "od 2 249 zł";
+      note = "Aktualna oferta Booksy podaje powłokę ceramiczną na lakier od 2 249 zł. Cena i zakres wymagają potwierdzenia w studiu.";
     } else {
       estimate = "potrzebne doprecyzowanie";
       note = "Wybierz konkretną usługę, a pokażę dostępną orientacyjną cenę. Przy niestandardowej usłudze cenę potwierdzi studio.";
