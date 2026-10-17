@@ -294,3 +294,35 @@
 .owner-task-row:has(input:checked){background:#d7ff6810}
 @keyframes owner-toast-in{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.owner-shell button,.owner-shell a,.owner-photo-grid article,.owner-service-list article,.owner-task-row{transition:none;animation:none}}
+
+
+/* Interactive details for the public-facing site — monochrome with racing-red accents */
+.premium-site .premium-logo>span{color:#e32636}
+.premium-site .premium-brand,.premium-site .premium-nav nav button,.premium-site .premium-primary,.premium-site .premium-secondary,.premium-site .premium-text-link,.premium-site .premium-service-link,.premium-site .premium-book{transition:color .25s ease,background .25s ease,border-color .25s ease,transform .25s ease,box-shadow .25s ease}
+.premium-site .premium-nav nav button{position:relative}
+.premium-site .premium-nav nav button:after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:#e32636;transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.premium-site .premium-nav nav button.active:after,.premium-site .premium-nav nav button:hover:after{transform:scaleX(1)}
+.premium-site .premium-primary{background:#e32636;border:1px solid #e32636;color:#fff}
+.premium-site .premium-primary:hover{background:#ff3446;border-color:#ff3446;transform:translateY(-3px);box-shadow:0 12px 32px #e3263635}
+.premium-site .premium-secondary:hover{border-color:#e32636;color:#fff;background:#e3263617;transform:translateY(-3px)}
+.premium-site .premium-book:hover{background:#e32636;border-color:#e32636;color:#fff;transform:translateY(-2px)}
+.premium-site .premium-text-link:hover,.premium-site .premium-service-link:hover{color:#ff4554;transform:translateX(4px)}
+.premium-site .premium-gallery-item{overflow:hidden;isolation:isolate}
+.premium-site .premium-gallery-item:before{content:"";position:absolute;inset:0;z-index:1;border:1px solid #e3263600;transition:border-color .3s ease;pointer-events:none}
+.premium-site .premium-gallery-item:hover:before{border-color:#e32636}
+.premium-site .premium-gallery-item:hover img{transform:scale(1.055)}
+.premium-site .premium-gallery-item>span{transition:color .25s ease,transform .25s ease}
+.premium-site .premium-gallery-item:hover>span{color:#ff4554;transform:translateY(-3px)}
+.premium-site .premium-service-photo{overflow:hidden}
+.premium-site .premium-service-photo img{transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s}
+.premium-site .premium-service-card:hover .premium-service-photo img{transform:scale(1.06)}
+.premium-site .premium-service-photo>span{transition:color .25s ease}
+.premium-site .premium-service-card:hover .premium-service-photo>span{color:#ff4554}
+.premium-video-toggle{position:absolute;z-index:4;right:clamp(20px,5.4%,80px);bottom:68px;border:1px solid #ffffff55;background:#090a0bcc;color:#fff;padding:11px 13px;font-size:8px;letter-spacing:.13em;backdrop-filter:blur(8px);transition:background .2s,border-color .2s,transform .2s}
+.premium-video-toggle:hover{background:#e32636;border-color:#e32636;transform:translateY(-2px)}
+.premium-back-top{position:fixed;right:22px;bottom:24px;z-index:50;display:flex;align-items:center;gap:10px;padding:11px 14px;background:#101011eF;border:1px solid #e32636;color:#fff;box-shadow:0 8px 28px #0006;animation:premium-rise .25s ease both}
+.premium-back-top span{font-size:20px;color:#ff4554}.premium-back-top small{font-size:8px;letter-spacing:.15em}
+@keyframes premium-rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.premium-site button:focus-visible,.premium-site a:focus-visible{outline:2px solid #ff4554;outline-offset:4px}
+@media(max-width:700px){.premium-video-toggle{right:18px;bottom:58px;padding:9px 10px;font-size:7px}.premium-back-top{right:12px;bottom:14px}.premium-site .premium-nav nav button:after{bottom:-4px}}
+@media(prefers-reduced-motion:reduce){.premium-site .premium-brand,.premium-site .premium-nav nav button,.premium-site .premium-primary,.premium-site .premium-secondary,.premium-site .premium-text-link,.premium-site .premium-service-link,.premium-site .premium-book,.premium-site .premium-gallery-item img,.premium-site .premium-service-photo img,.premium-back-top{transition:none;animation:none}}
