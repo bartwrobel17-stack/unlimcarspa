@@ -8,10 +8,10 @@ type Tab = "start" | "uslugi" | "galeria" | "studio" | "kontakt";
 const photos = [
   { src: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=2400&q=90", alt: "Czerwone sportowe auto w eleganckim świetle" },
   { src: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=2400&q=90", alt: "Ciemny samochód z wyrazistą linią nadwozia" },
-  { src: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90", alt: "Precyzyjna praca przy lakierze samochodu" },
   { src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", alt: "Sportowe auto w dopracowanej kompozycji" },
-  { src: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2400&q=90", alt: "Błyszczące nadwozie samochodu premium" },
-  { src: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=2400&q=90", alt: "Samochód w miejskim, wieczornym klimacie" },
+  { src: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", alt: "Sportowe auto w dopracowanej kompozycji" },
+  { src: "https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=2400&q=90", alt: "Detale wnętrza samochodu premium" },
+  { src: "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?auto=format&fit=crop&w=2400&q=90", alt: "Starannie wykończone wnętrze auta" },
 ];
 const servicePhotos: Record<string, string> = {
   "Pielęgnacja auta": "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1800&q=90",
@@ -30,7 +30,7 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<Tab>("start");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [galleryFilter, setGalleryFilter] = useState<"all" | "lakier" | "wnetrze" | "blask">("all");
-  const galleryCategories = ["blask", "lakier", "wnetrze", "blask", "lakier", "blask"] as const;
+  const galleryCategories = ["blask", "lakier", "blask", "blask", "wnetrze", "wnetrze"] as const;
   const visiblePhotos = photos.map((photo, index) => ({ ...photo, index, category: galleryCategories[index] })).filter(photo => galleryFilter === "all" || photo.category === galleryFilter);
   const tabItems: { id: Tab; label: string }[] = [
     { id: "start", label: "Start" }, { id: "uslugi", label: "Usługi" }, { id: "galeria", label: "Galeria" }, { id: "studio", label: "Studio" }, { id: "kontakt", label: "Kontakt" },
