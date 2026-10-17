@@ -26,8 +26,6 @@ export default function ChatWidget() {
   const [year, setYear] = useState("");
   const [service, setService] = useState("Polerowanie lakieru");
   const [details, setDetails] = useState("");
-  const [copied, setCopied] = useState(false);
-  const [quoteReady, setQuoteReady] = useState(false);
 
   function send(text = draft) {
     const value = text.trim();
@@ -45,8 +43,6 @@ export default function ChatWidget() {
     setYear("");
     setService("Polerowanie lakieru");
     setDetails("");
-    setCopied(false);
-    setQuoteReady(false);
   }
 
   function estimateQuote() {
@@ -86,7 +82,7 @@ export default function ChatWidget() {
       note,
       details.trim() ? `Uwzględniony opis: ${details.trim()}` : "",
       "To szacunek informacyjny, nie wiążąca oferta. Aktualny zakres i cenę potwierdź w studiu.",
-    ].filter(Boolean).join("\\n");
+    ].filter(Boolean).join("\n");
 
     return result;
   }
@@ -99,8 +95,6 @@ export default function ChatWidget() {
       { from: "bot", text: estimate },
     ]);
     setQuoteOpen(false);
-    setCopied(false);
-    setQuoteReady(false);
   }
 
   return <>
@@ -129,6 +123,13 @@ export default function ChatWidget() {
         <p>Podaj tylko to, co wiesz. Nie wysyłamy danych automatycznie.</p>
         <label>Marka i model auta
           <input value={car} onChange={e => setCar(e.target.value)} placeholder="Np. BMW 3, Toyota Corolla" maxLength={100} />
+        </label>
+        <label>Wielkość samochodu
+          <select value={carSize} onChange={e => setCarSize(e.target.value)}>
+            <option>Małe / sedan / kombi</option>
+            <option>SUV / crossover</option>
+            <option>Bus / duży samochód</option>
+          </select>
         </label>
         <label>Rocznik
           <input value={year} onChange={e => setYear(e.target.value)} placeholder="Np. 2019" inputMode="numeric" maxLength={4} />
