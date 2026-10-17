@@ -260,3 +260,15 @@
 .premium-gallery-bottom{border-top:1px solid rgba(255,255,255,.08)}
 .premium-contact-section{background:radial-gradient(ellipse at 80% 50%,rgba(107,17,26,.2),transparent 40%),linear-gradient(110deg,#17181a,#090a0b)}
 @media(max-width:700px){.premium-hero{min-height:560px}.premium-audi-feature{grid-template-columns:1fr;gap:18px;padding:32px 22px 42px}.premium-audi-feature>img{height:220px;mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%)}.premium-audi-caption{right:22px;bottom:15px;font-size:7px}.premium-audi-copy h2{font-size:42px}}
+
+
+/* 80% obsydian black / 20% diffused racing red */
+.premium-site{background-color:#08090a;background-image:radial-gradient(ellipse 70% 34% at 100% 12%,rgba(174,18,34,.22),transparent 72%),radial-gradient(ellipse 55% 30% at 0% 42%,rgba(118,14,27,.14),transparent 75%),radial-gradient(ellipse 75% 30% at 95% 78%,rgba(156,18,32,.16),transparent 72%),linear-gradient(180deg,#08090a 0%,#0a0a0b 32%,#0c0c0e 60%,#08090a 100%)}
+.premium-site:before{opacity:.2;background:radial-gradient(ellipse at 80% 24%,rgba(210,28,47,.22),transparent 35%),radial-gradient(ellipse at 15% 68%,rgba(115,19,29,.15),transparent 34%),linear-gradient(115deg,transparent 0 48%,rgba(255,255,255,.018) 48.1%,transparent 48.4% 100%)}
+.premium-strip{background:linear-gradient(90deg,#0c0c0e 0%,#151012 55%,#0b0c0d 100%)}
+.premium-home-intro{background:linear-gradient(115deg,rgba(12,13,14,.92),rgba(20,12,14,.72),rgba(9,10,11,.95))}
+.premium-feature{background:linear-gradient(110deg,#0b0c0d 0%,#111113 68%,#1a0c0f 100%)}
+.premium-audi-feature{background:radial-gradient(ellipse at 83% 52%,rgba(151,17,32,.18),transparent 40%),linear-gradient(110deg,#08090a 0%,#101113 62%,#160c0f 100%)}
+.premium-page-section{background:linear-gradient(180deg,rgba(9,10,11,.96),rgba(13,12,13,.94) 58%,rgba(8,9,10,.98))}
+.premium-contact-section{background:radial-gradient(ellipse at 85% 40%,rgba(165,17,34,.19),transparent 42%),linear-gradient(110deg,#0a0b0c,#111012 68%,#08090a)}
+.premium-gallery-item:nth-child(5) img,.premium-gallery-item:nth-child(6) img{object-position:center 58%}
