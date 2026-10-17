@@ -22,6 +22,7 @@ export default function ChatWidget() {
   const [messages, setMessages] = useState<Message[]>([{ from: "bot", text: welcome }]);
   const [quoteOpen, setQuoteOpen] = useState(false);
   const [car, setCar] = useState("");
+  const [carSize, setCarSize] = useState("Małe / sedan / kombi");
   const [year, setYear] = useState("");
   const [service, setService] = useState("Polerowanie lakieru");
   const [details, setDetails] = useState("");
@@ -40,6 +41,7 @@ export default function ChatWidget() {
     setDraft("");
     setQuoteOpen(false);
     setCar("");
+    setCarSize("Małe / sedan / kombi");
     setYear("");
     setService("Polerowanie lakieru");
     setDetails("");
@@ -47,34 +49,58 @@ export default function ChatWidget() {
     setQuoteReady(false);
   }
 
-  const quoteMessage = [
-    "Dzień dobry, proszę o wycenę usługi w UNLIM CAR SPA.",
-    "Samochód: " + (car.trim() || "do uzupełnienia"),
-    "Rocznik: " + (year.trim() || "do uzupełnienia"),
-    "Interesująca usługa: " + service,
-    "Opis / oczekiwany efekt: " + (details.trim() || "proszę o kontakt w celu ustalenia szczegółów"),
-    "Proszę o informację o orientacyjnej cenie, zakresie prac i dostępnych terminach. Dziękuję!",
-  ].join("\n");
+  function estimateQuote() {
+    const normalizedDetails = details.toLocaleLowerCase("pl");
+    const isLeather = /skor|skór/.test(normalizedDetails);
+    let estimate: string;
+    let note: string;
 
-  async function prepareQuote(e: FormEvent<HTMLFormElement>) {
+    if (service === "Pielęgnacja auta") {
+      const prices: Record<string, number> = {
+        "Małe / sedan / kombi": 140,
+        "SUV / crossover": 150,
+        "Bus / duży samochód": 170,
+      };
+      estimate = `${prices[carSize]} zł`;
+      note = "Orientacyjna cena za pakiet „Komplet” (mycie zewnętrzne + czyszczenie wnętrza), według aktualnej oferty Booksy.";
+    } else if (service === "Pranie tapicerki") {
+      estimate = isLeather ? "od 500 zł" : "od 100 zł";
+      note = isLeather
+        ? "Booksy podaje czyszczenie tapicerki skórzanej od 500 zł. Ostateczna cena zależy od wielkości auta i zakresu."
+        : "Booksy podaje pranie tapicerki materiałowej od 100 zł; to cena początkowa, a nie gwarantowana cena za całe auto.";
+    } else if (service === "Polerowanie lakieru") {
+      estimate = "wymaga indywidualnej wyceny";
+      note = "Cena polerowania zależy od stanu lakieru i zakresu korekty. Nie mam potwierdzonej aktualnej kwoty dla tej usługi, więc nie będę jej zgadywać.";
+    } else if (service === "Powłoka ceramiczna / zabezpieczenie lakieru") {
+      estimate = "wymaga indywidualnej wyceny";
+      note = "Cena zależy od przygotowania lakieru, wybranego zabezpieczenia i wielkości auta. Powłoka polimerowa w pakiecie to inna usługa niż powłoka ceramiczna.";
+    } else {
+      estimate = "potrzebne doprecyzowanie";
+      note = "Wybierz konkretną usługę, a pokażę dostępną orientacyjną cenę. Przy niestandardowej usłudze cenę potwierdzi studio.";
+    }
+
+    const result = [
+      `Wstępna wycena: ${estimate}`,
+      `Usługa: ${service}`,
+      `Samochód: ${car.trim() || "nie podano"}${year.trim() ? ` (${year.trim()})` : ""}`,
+      note,
+      details.trim() ? `Uwzględniony opis: ${details.trim()}` : "",
+      "To szacunek informacyjny, nie wiążąca oferta. Aktualny zakres i cenę potwierdź w studiu.",
+    ].filter(Boolean).join("\\n");
+
+    return result;
+  }
+
+  function prepareQuote(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    const estimate = estimateQuote();
     setMessages(old => [...old,
-      { from: "user", text: "Chcę przygotować zapytanie o wycenę." },
-      { from: "bot", text: "Gotowe! Przygotowałem wiadomość na podstawie podanych informacji. Skopiuj ją i wyślij do studia przez wybrany kanał kontaktu. To jeszcze nie jest wysłane zapytanie." },
-      { from: "bot", text: quoteMessage },
+      { from: "user", text: `Proszę o wycenę: ${service}.` },
+      { from: "bot", text: estimate },
     ]);
     setQuoteOpen(false);
     setCopied(false);
-    setQuoteReady(true);
-  }
-
-  async function copyQuote() {
-    try {
-      await navigator.clipboard.writeText(quoteMessage);
-      setCopied(true);
-    } catch {
-      setMessages(old => [...old, { from: "bot", text: "Automatyczne kopiowanie jest niedostępne w tej przeglądarce. Zaznacz przygotowaną wiadomość powyżej i skopiuj ją ręcznie." }]);
-    }
+    setQuoteReady(false);
   }
 
   return <>
@@ -99,7 +125,7 @@ export default function ChatWidget() {
         <button className="quote-shortcut" onClick={() => setQuoteOpen(v => !v)}>{quoteOpen ? "× Zamknij formularz" : "📝 Poproś o wycenę"}</button>
       </div>
       {quoteOpen && <form className="quote-form" onSubmit={prepareQuote}>
-        <div className="quote-form-title">Przygotuj zapytanie o wycenę</div>
+        <div className="quote-form-title">Sprawdź orientacyjną cenę</div>
         <p>Podaj tylko to, co wiesz. Nie wysyłamy danych automatycznie.</p>
         <label>Marka i model auta
           <input value={car} onChange={e => setCar(e.target.value)} placeholder="Np. BMW 3, Toyota Corolla" maxLength={100} />
@@ -120,7 +146,7 @@ export default function ChatWidget() {
         <label>Opis i oczekiwany efekt
           <textarea value={details} onChange={e => setDetails(e.target.value)} placeholder="Np. lekkie rysy na lakierze, plamy na fotelach, chcę odświeżyć auto…" rows={3} maxLength={600} />
         </label>
-        <button className="quote-submit" type="submit">Przygotuj wiadomość ↗</button>
+        <button className="quote-submit" type="submit">Wylicz orientacyjną cenę ↗</button>
       </form>}
       <form className="chat-form" onSubmit={e => { e.preventDefault(); send(); }}>
         <input value={draft} onChange={e => setDraft(e.target.value)} placeholder="Np. chcę odświeżyć lakier…" aria-label="Wiadomość do asystenta" maxLength={500} />
@@ -130,9 +156,9 @@ export default function ChatWidget() {
         <a className="chat-booking" href={business.booking} target="_blank" rel="noreferrer">Rezerwuj na Booksy ↗</a>
         <a className="chat-booking" href={business.maps} target="_blank" rel="noreferrer">Dojazd ↗</a>
         <a className="chat-booking" href={`tel:${business.phone.replace(/\s/g, "")}`}>Zadzwoń ↗</a>
-        {quoteReady && <button type="button" className="chat-booking chat-copy" onClick={copyQuote}> {copied ? "Skopiowano ✓" : "Kopiuj zapytanie"} </button>}
+
       </div>
-      <p className="chat-disclaimer">Wiadomość nie jest wysyłana automatycznie. Ceny, zakres usług i terminy potwierdza studio.</p>
+      <p className="chat-disclaimer">Wycena jest orientacyjna i nie stanowi oferty. Ostateczną cenę oraz zakres prac potwierdza studio.</p>
     </section>}
   </>;
 }
