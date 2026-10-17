@@ -30,7 +30,6 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState<Tab>("start");
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [galleryFilter, setGalleryFilter] = useState<"all" | "lakier" | "wnetrze" | "blask">("all");
-  const [videoPaused, setVideoPaused] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
   const [showTopButton, setShowTopButton] = useState(false);
   useEffect(() => {
@@ -65,7 +64,6 @@ export default function Home() {
         <div className="premium-hero-content"><span className="premium-eyebrow"><i /> DETAILING SAMOCHODOWY · LUBIN</span><h1>Charakter auta.<br /><em>Wydobyty w detalu.</em></h1><p>Polerowanie lakieru, pielęgnacja wnętrza i dbałość o wykończenie. Zobacz, co możemy zrobić dla Twojego samochodu.</p><div className="premium-actions"><button className="premium-primary" onClick={() => go("uslugi")}>Poznaj usługi <span>↗</span></button><button className="premium-secondary" onClick={() => go("galeria")}>Zobacz galerię <span>↗</span></button></div></div>
         <div className="premium-hero-bottom"><span>PRECYZJA W KAŻDYM RUCHU</span><span>01 — 05</span></div>
         <div className="video-credit">Wideo poglądowe · Pexels</div>
-        <button className="premium-video-toggle" onClick={() => { const video = document.querySelector<HTMLVideoElement>(".hero-video"); if (!video) return; if (videoPaused) { void video.play(); setVideoPaused(false); } else { video.pause(); setVideoPaused(true); } }} aria-label={videoPaused ? "Odtwórz film w tle" : "Zatrzymaj film w tle"}>{videoPaused ? "▶ ODTWÓRZ FILM" : "Ⅱ ZATRZYMAJ FILM"}</button>
       </section>
       <div className="premium-strip"><span>PAINT CORRECTION</span><b>✳</b><span>INTERIOR CARE</span><b>✳</b><span>PROTECT & SHINE</span><b>✳</b><span>UNLIM CAR SPA</span></div>
       <section className="premium-audi-feature"><div className="premium-audi-copy"><span className="premium-eyebrow"><i /> DETALING · PRECYZJA · POŁYSK</span><h2>Niech robi<br/><em>wrażenie.</em></h2><p>Każdy refleks, każda linia nadwozia i każdy detal mają znaczenie. Dobierzemy pielęgnację do charakteru Twojego auta.</p><button className="premium-text-link" onClick={() => go("galeria")}>Zobacz realizacje <span>↗</span></button></div><img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?auto=format&fit=crop&w=1400&q=85" alt="Sportowe Audi w ciemnej, eleganckiej scenerii" loading="lazy" onError={(event)=>{event.currentTarget.src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85";}}/><span className="premium-audi-caption">SPORT / DESIGN / DETAIL <b>UNLIM CAR SPA</b></span></section>
