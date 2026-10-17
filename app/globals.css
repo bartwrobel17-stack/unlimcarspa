@@ -16,3 +16,14 @@
 .chat-disclaimer{font-size:9px;line-height:1.5;color:#777a70;text-align:center;margin:0;padding:0 16px 12px}
 .chat-head .chat-dot{background:var(--acid)}
 @media(max-width:560px){.quick-questions{max-height:100px}.chat-disclaimer{font-size:8px}}
+
+.quote-shortcut{background:var(--acid)!important;border-color:var(--acid)!important;color:var(--ink)}
+.quote-form{display:grid;gap:10px;padding:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-height:240px;overflow-y:auto;background:#e9e8df}
+.quote-form-title{font:600 15px var(--display);letter-spacing:-.03em}
+.quote-form>p{font-size:10px;line-height:1.5;color:#777a70;margin:0 0 2px}
+.quote-form label{display:grid;gap:5px;font-size:10px;color:#55584f}
+.quote-form input,.quote-form select,.quote-form textarea{width:100%;min-width:0;border:1px solid var(--line);background:white;padding:10px;font:11px var(--font);color:var(--ink);border-radius:0}
+.quote-form textarea{resize:vertical}
+.quote-submit{border:0;background:var(--dark);color:white;padding:12px;font-size:11px;text-align:center}
+.chat-copy{border:0;background:transparent;font:10px var(--font);cursor:pointer;color:var(--ink)}
+@media(max-width:560px){.quote-form{max-height:220px;padding:12px}.quote-form input,.quote-form select,.quote-form textarea{padding:9px}}
