@@ -9,7 +9,7 @@ Premiumowa, responsywna strona wizytówkowa dla studia pielęgnacji samochodów 
 - SEO metadata, robots i sitemap
 
 ## Uruchomienie lokalne
-Wymagany Node.js 20 lub nowszy.
+Wymagany Node.js 20 lub nowszy. Ustaw `NEXT_PUBLIC_SITE_URL` na docelowy adres strony (np. domenę produkcyjną), aby wygenerować poprawne canonical, sitemap i adres sitemap w robots.txt. Nie ustawiaj tu adresu Booksy.
 
 ```bash
 npm install
@@ -19,7 +19,7 @@ npm run dev
 Otwórz http://localhost:3000. Build produkcyjny: `npm run build`, a następnie `npm start`.
 
 ## Panel właściciela i zdjęcia
-Kliknij „Panel właściciela” w stopce lub „Zarządzaj galerią” w sekcji realizacji. Możesz dodawać wiele zdjęć, usuwać je i zmieniać ich kolejność. Pliki są ograniczone do 2,5 MB i przechowywane jako data URL w localStorage przeglądarki.
+Kliknij „Panel właściciela” w stopce lub „Zarządzaj galerią” w sekcji realizacji. Możesz dodawać wiele zdjęć, usuwać je i zmieniać ich kolejność. Panel pozwala też edytować nazwy, opisy i adresy zdjęć usług oraz dodawać i usuwać pozycje oferty. Pliki są ograniczone do 2,5 MB i przechowywane jako data URL w localStorage przeglądarki.
 
 **Ograniczenie wersji demo:** galeria jest zapisywana tylko w bieżącej przeglądarce i urządzeniu. Nie publikuje zmian globalnie, nie ma uwierzytelniania ani trwałego magazynu plików. Nie przechowuj tu danych wrażliwych. Przed publicznym użyciem panel należy zabezpieczyć.
 
