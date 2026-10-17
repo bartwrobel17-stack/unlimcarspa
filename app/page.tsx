@@ -31,6 +31,7 @@ export default function Home() {
   const [lightbox, setLightbox] = useState<number | null>(null);
   const [galleryFilter, setGalleryFilter] = useState<"all" | "lakier" | "wnetrze" | "blask">("all");
   const [videoPaused, setVideoPaused] = useState(false);
+  const [videoFailed, setVideoFailed] = useState(false);
   const [showTopButton, setShowTopButton] = useState(false);
   useEffect(() => {
     const onScroll = () => setShowTopButton(window.scrollY > 420);
@@ -56,9 +57,10 @@ export default function Home() {
 
     {activeTab === "start" && <>
       <section className="premium-hero">
-        <video className="hero-video" autoPlay muted loop playsInline preload="metadata" poster={photos[3].src} aria-label="Film przedstawiający polerowanie lakieru samochodowego">
+        <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster={photos[3].src} aria-label="Film przedstawiający polerowanie lakieru samochodowego" onCanPlay={() => setVideoFailed(false)} onError={() => setVideoFailed(true)}>
           <source src="https://videos.pexels.com/video-files/4822920/4822920-hd_3840_2160_30fps.mp4" type="video/mp4" />
         </video>
+        {videoFailed && <div className="premium-video-error" role="status">Film nie załadował się — odśwież stronę, aby spróbować ponownie.</div>}
         <div className="premium-hero-shade" />
         <div className="premium-hero-content"><span className="premium-eyebrow"><i /> DETAILING SAMOCHODOWY · LUBIN</span><h1>Charakter auta.<br /><em>Wydobyty w detalu.</em></h1><p>Polerowanie lakieru, pielęgnacja wnętrza i dbałość o wykończenie. Zobacz, co możemy zrobić dla Twojego samochodu.</p><div className="premium-actions"><button className="premium-primary" onClick={() => go("uslugi")}>Poznaj usługi <span>↗</span></button><button className="premium-secondary" onClick={() => go("galeria")}>Zobacz galerię <span>↗</span></button></div></div>
         <div className="premium-hero-bottom"><span>PRECYZJA W KAŻDYM RUCHU</span><span>01 — 05</span></div>
