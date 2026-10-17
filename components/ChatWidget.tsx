@@ -26,6 +26,7 @@ export default function ChatWidget() {
   const [service, setService] = useState("Polerowanie lakieru");
   const [details, setDetails] = useState("");
   const [copied, setCopied] = useState(false);
+  const [quoteReady, setQuoteReady] = useState(false);
 
   function send(text = draft) {
     const value = text.trim();
@@ -43,6 +44,7 @@ export default function ChatWidget() {
     setService("Polerowanie lakieru");
     setDetails("");
     setCopied(false);
+    setQuoteReady(false);
   }
 
   const quoteMessage = [
@@ -63,6 +65,7 @@ export default function ChatWidget() {
     ]);
     setQuoteOpen(false);
     setCopied(false);
+    setQuoteReady(true);
   }
 
   async function copyQuote() {
@@ -127,7 +130,7 @@ export default function ChatWidget() {
         <a className="chat-booking" href={business.booking} target="_blank" rel="noreferrer">Rezerwuj na Booksy ↗</a>
         <a className="chat-booking" href={business.maps} target="_blank" rel="noreferrer">Dojazd ↗</a>
         <a className="chat-booking" href={`tel:${business.phone.replace(/\s/g, "")}`}>Zadzwoń ↗</a>
-        <button type="button" className="chat-booking chat-copy" onClick={copyQuote}> {copied ? "Skopiowano ✓" : "Kopiuj zapytanie"} </button>
+        {quoteReady && <button type="button" className="chat-booking chat-copy" onClick={copyQuote}> {copied ? "Skopiowano ✓" : "Kopiuj zapytanie"} </button>}
       </div>
       <p className="chat-disclaimer">Wiadomość nie jest wysyłana automatycznie. Ceny, zakres usług i terminy potwierdza studio.</p>
     </section>}
