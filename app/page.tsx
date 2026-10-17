@@ -3,7 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 import ChatWidget from "@/components/ChatWidget";
 import { business, services } from "@/lib/chatbot-data";
 
-type Photo = { id: string; src: string; alt: string };\ntype OfferItem = { id: string; title: string; description: string; image: string };
+type Photo = { id: string; src: string; alt: string };
+type OfferItem = { id: string; title: string; description: string; image: string };
 const initialGallery: Photo[] = [
  {id:"a",src:"https://images.unsplash.com/photo-1607860108855-64acet0a6d8a?auto=format&fit=crop&w=1400&q=85",alt:"Pielęgnacja lakieru samochodowego"},
  {id:"b",src:"https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=1200&q=85",alt:"Detal samochodu po pielęgnacji"},
@@ -11,7 +12,8 @@ const initialGallery: Photo[] = [
  {id:"d",src:"https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=85",alt:"Sylwetka samochodu"},
 ];
 export default function Home() {
- const [gallery,setGallery] = useState<Photo[]>(initialGallery);\n const [offerItems,setOfferItems] = useState<OfferItem[]>(services.map(s=>({id:s.id,title:s.title,description:s.description,image:s.image})));
+ const [gallery,setGallery] = useState<Photo[]>(initialGallery);
+ const [offerItems,setOfferItems] = useState<OfferItem[]>(services.map(s=>({id:s.id,title:s.title,description:s.description,image:s.image})));
  const [lightbox,setLightbox] = useState<number|null>(null);
  const [admin,setAdmin] = useState(false);
  const [stored,setStored] = useState(false);
