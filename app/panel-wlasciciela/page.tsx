@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 
 type Photo = { id: number; title: string; url: string; category: string };
-type Service = { id: string; title: string; price: string; active: boolean };
+type Service = { id: string; title: string; price: string; active: boolean; image: string };
 type Data = { photos: Photo[]; services: Service[]; tasks: { id: number; text: string; done: boolean }[]; phone: string; booking: string; instagram: string };
 const defaults: Data = {
   photos: [
@@ -11,10 +11,10 @@ const defaults: Data = {
     { id: 3, title: "Sportowa sylwetka", url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85", category: "Realizacje" }
   ],
   services: [
-    { id: "01", title: "Pielęgnacja auta", price: "", active: true },
-    { id: "02", title: "Polerowanie lakieru", price: "", active: true },
-    { id: "03", title: "Pranie tapicerki", price: "", active: true },
-    { id: "04", title: "Powłoka ceramiczna", price: "", active: true }
+    { id: "01", title: "Pielęgnacja auta", price: "", active: true, image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=85" },
+    { id: "02", title: "Polerowanie lakieru", price: "", active: true, image: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=85" },
+    { id: "03", title: "Pranie tapicerki", price: "", active: true, image: "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=1200&q=85" },
+    { id: "04", title: "Powłoka ceramiczna", price: "", active: true, image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85" }
   ],
   tasks: [
     { id: 1, text: "Dodać własne zdjęcia realizacji", done: false },
