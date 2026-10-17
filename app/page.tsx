@@ -58,7 +58,7 @@ export default function Home() {
     {activeTab === "start" && <>
       <section className="premium-hero">
         <video className="hero-video" autoPlay muted loop playsInline preload="auto" poster={photos[3].src} aria-label="Film przedstawiający polerowanie lakieru samochodowego" onCanPlay={() => setVideoFailed(false)} onError={() => setVideoFailed(true)}>
-          <source src="https://videos.pexels.com/video-files/4822920/4822920-hd_3840_2160_30fps.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/6159183/6159183-hd_1920_1080_30fps.mp4" type="video/mp4" />
         </video>
         {videoFailed && <div className="premium-video-error" role="status">Film nie załadował się — odśwież stronę, aby spróbować ponownie.</div>}
         <div className="premium-hero-shade" />
