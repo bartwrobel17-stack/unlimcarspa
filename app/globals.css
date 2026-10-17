@@ -326,3 +326,6 @@
 .premium-site button:focus-visible,.premium-site a:focus-visible{outline:2px solid #ff4554;outline-offset:4px}
 @media(max-width:700px){.premium-video-toggle{right:18px;bottom:58px;padding:9px 10px;font-size:7px}.premium-back-top{right:12px;bottom:14px}.premium-site .premium-nav nav button:after{bottom:-4px}}
 @media(prefers-reduced-motion:reduce){.premium-site .premium-brand,.premium-site .premium-nav nav button,.premium-site .premium-primary,.premium-site .premium-secondary,.premium-site .premium-text-link,.premium-site .premium-service-link,.premium-site .premium-book,.premium-site .premium-gallery-item img,.premium-site .premium-service-photo img,.premium-back-top{transition:none;animation:none}}
+
+.premium-video-error{position:absolute;z-index:4;left:clamp(20px,5.4%,80px);bottom:68px;max-width:300px;padding:10px 12px;background:#101011eF;border-left:2px solid #e32636;color:#fff;font-size:10px;line-height:1.5}
+@media(max-width:700px){.premium-video-error{left:18px;right:18px;bottom:58px;max-width:none}}
