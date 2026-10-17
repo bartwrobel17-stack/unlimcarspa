@@ -27,3 +27,21 @@
 .quote-submit{border:0;background:var(--dark);color:white;padding:12px;font-size:11px;text-align:center}
 .chat-copy{border:0;background:transparent;font:10px var(--font);cursor:pointer;color:var(--ink)}
 @media(max-width:560px){.quote-form{max-height:220px;padding:12px}.quote-form input,.quote-form select,.quote-form textarea{padding:9px}}
+
+/* Premium detail polish: richer color, sharper photography and clearer service actions */
+:root{--acid:#d7ff68;--violet:#b6a1ff;--cyan:#8ee8e0;--coral:#ffad8c}
+.ticker{background:linear-gradient(105deg,#d7ff68 0%,#b9f4d9 48%,#b6a1ff 100%)}
+.services{background:linear-gradient(135deg,#eeede6 0%,#e3e9df 48%,#ece4f5 100%)}
+.service-item{position:relative}
+.service-image{isolation:isolate}
+.service-image:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(145deg,rgba(142,232,224,.13),transparent 42%,rgba(182,161,255,.14));mix-blend-mode:screen;opacity:.7;transition:opacity .3s}
+.service-item:hover .service-image:after{opacity:1}
+.service-arrow{transition:background .2s,transform .2s;z-index:2}
+.service-arrow:hover{background:var(--acid);transform:translate(2px,-2px)}
+.service-meta h3{transition:color .2s}
+.service-item:hover .service-meta h3{color:#687f2b}
+.gallery-photo:focus-visible,.service-arrow:focus-visible{outline:3px solid var(--violet);outline-offset:4px}
+.gallery-photo span{box-shadow:0 4px 18px #0002}
+.review-band{background:linear-gradient(110deg,#d7ff68,#b8f3d8 58%,#b6a1ff)}
+.contact{background:linear-gradient(135deg,#eeede6,#e4e9e1 62%,#e9e1f2)}
+@media(prefers-reduced-motion:reduce){.service-arrow,.service-meta h3,.service-image:after{transition:none}}
