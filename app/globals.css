@@ -428,6 +428,5 @@
 }
 
 
-/* Przycisk „na górę” — odsunięty w lewo, aby nie nachodził na chat */
-.premium-back-top{right:clamp(130px,12vw,180px)}
-@media(max-width:700px){.premium-back-top{right:90px;bottom:14px}}
+/* Usunięcie przycisku „na górę” */
+.premium-back-top{display:none!important}
