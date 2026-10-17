@@ -426,3 +426,8 @@
     radial-gradient(ellipse at 100% 0%,rgba(151,17,29,.22),transparent 38%),
     linear-gradient(155deg,#080808,#151515 62%,#090909)}
 }
+
+
+/* Przycisk „na górę” — lekko odsunięty od prawej krawędzi w lewo */
+.premium-back-top{right:clamp(38px,7vw,100px)}
+@media(max-width:700px){.premium-back-top{right:30px}}
