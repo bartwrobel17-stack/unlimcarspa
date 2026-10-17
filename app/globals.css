@@ -329,3 +329,100 @@
 
 .premium-video-error{position:absolute;z-index:4;left:clamp(20px,5.4%,80px);bottom:68px;max-width:300px;padding:10px 12px;background:#101011eF;border-left:2px solid #e32636;color:#fff;font-size:10px;line-height:1.5}
 @media(max-width:700px){.premium-video-error{left:18px;right:18px;bottom:58px;max-width:none}}
+
+
+/* UNLIM CAR SPA — ciemny, czarno-czerwony motyw podstron i czatu */
+.premium-page-section{
+  color:#f5f5f5;
+  background:
+    radial-gradient(ellipse at 88% 12%, rgba(151,17,29,.24), transparent 34%),
+    radial-gradient(ellipse at 8% 78%, rgba(95,12,20,.20), transparent 38%),
+    linear-gradient(135deg,#080808 0%,#141414 52%,#090909 100%);
+}
+.premium-page-heading h1,
+.premium-page-heading h2,
+.premium-service-copy h2{color:#f7f7f7}
+.premium-page-heading h1 em,
+.premium-service-copy h2 em{color:#e32936}
+.premium-page-heading p,
+.premium-service-copy p,
+.premium-service-copy li,
+.premium-disclaimer{color:#c3c3c3}
+.premium-eyebrow.dark{color:#f0f0f0}
+.premium-eyebrow.dark i{background:#e32936}
+.premium-service-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 18px 48px rgba(0,0,0,.22);
+}
+.premium-service-copy{color:#f5f5f5}
+.premium-service-copy li::marker{color:#e32936}
+.premium-service-link{color:#fff;border-color:rgba(227,41,54,.65)}
+.premium-service-link span{color:#ff4652}
+.premium-gallery-toolbar{color:#e7e7e7}
+.premium-gallery-filters button{
+  color:#ddd;background:rgba(255,255,255,.035);
+  border:1px solid rgba(255,255,255,.18);
+}
+.premium-gallery-filters button.active,
+.premium-gallery-filters button:hover{
+  color:#fff;background:#a81420;border-color:#e32936;
+}
+.premium-gallery-count{color:#bcbcbc}
+.premium-gallery-item{background:#171717;border-color:rgba(255,255,255,.12)}
+.premium-page-section .premium-primary,
+.premium-page-section .premium-service-link:hover{background:#bd1724;color:#fff}
+.premium-page-section a:focus-visible,
+.premium-page-section button:focus-visible{outline-color:#f04450}
+
+/* Czat: ciemne tło wiadomości bota, bez jasnych bąbelków */
+.chat-panel{
+  background:#090909;color:#f4f4f4;border-color:rgba(255,255,255,.15);
+  box-shadow:0 18px 60px rgba(0,0,0,.55);
+}
+.chat-messages{
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(145,15,26,.18),transparent 45%),
+    linear-gradient(160deg,#080808,#151515 65%,#0b0b0b);
+}
+.chat-messages .message{
+  background:linear-gradient(135deg,#252525,#1a1a1a);
+  color:#f2f2f2;border:1px solid rgba(255,255,255,.09);
+  border-radius:3px 14px 14px 14px;
+}
+.chat-messages .message.user-message{
+  background:linear-gradient(135deg,#a91320,#641018);
+  color:#fff;border-color:rgba(255,65,77,.35);
+  border-radius:14px 3px 14px 14px;
+}
+.chat-shortcut-label{color:#ddd;background:#0b0b0b}
+.quick-questions{background:#0b0b0b}
+.quick-questions button{
+  color:#e5e5e5;border-color:#484848;background:#171717;
+}
+.quick-questions button:hover,
+.quick-questions button:focus-visible{
+  background:#8f111c;border-color:#e32936;color:#fff;
+}
+.chat-form{background:#0b0b0b;border-color:#333}
+.chat-form input{
+  background:#181818;color:#fff;border-color:#454545;
+}
+.chat-form input::placeholder{color:#999}
+.chat-form button{background:#b81725;color:#fff}
+.chat-footer-links{background:#0b0b0b}
+.chat-booking{color:#f0f0f0}
+.chat-disclaimer{background:#0b0b0b;color:#aaa}
+.quote-form{background:#111;color:#f3f3f3;border-color:#383838}
+.quote-form input,.quote-form select,.quote-form textarea{
+  background:#1b1b1b;color:#f5f5f5;border-color:#484848;
+}
+.quote-form input::placeholder,.quote-form textarea::placeholder{color:#999}
+.quote-submit{background:#b81725;color:#fff}
+.chat-launch{background:#b81725;color:#fff;border:1px solid #e32936}
+.chat-dot{background:#ef3946}
+@media(max-width:560px){
+  .premium-page-section{background:
+    radial-gradient(ellipse at 100% 0%,rgba(151,17,29,.22),transparent 38%),
+    linear-gradient(155deg,#080808,#151515 62%,#090909)}
+}
