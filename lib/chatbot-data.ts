@@ -9,10 +9,10 @@ export const business = {
 };
 
 export const services = [
-  { id: "01", title: "Pielęgnacja auta", description: "Dokładna pielęgnacja samochodu z dbałością o detale.", image: "https://images.unsplash.com/photo-1607860108855-64acet0a6d8a?auto=format&fit=crop&w=1200&q=85" },
-  { id: "02", title: "Polerowanie lakieru", description: "Przywróć lakierowi głębię i zadbany wygląd.", image: "https://images.unsplash.com/photo-1632823471565-1ecdf5c7c5e8?auto=format&fit=crop&w=1200&q=85" },
-  { id: "03", title: "Pranie tapicerki", description: "Odświeżenie wnętrza i troska o komfort podróży.", image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=85" },
-  { id: "04", title: "Powłoka ceramiczna", description: "Zapytaj o dostępność i dobór zabezpieczenia do stanu lakieru.", image: "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=1200&q=85" },
+  { id: "01", title: "Pielęgnacja auta", description: "Dokładna pielęgnacja samochodu z dbałością o detale.", image: "https://images.unsplash.com/photo-1607860108855-64acet0a6d8a?auto=format&fit=crop&w=3840&q=95" },
+  { id: "02", title: "Polerowanie lakieru", description: "Przywróć lakierowi głębię i zadbany wygląd.", image: "https://images.unsplash.com/photo-1607860108855-64acet0a6d8a?auto=format&fit=crop&w=3840&q=95" },
+  { id: "03", title: "Pranie tapicerki", description: "Odświeżenie wnętrza i troska o komfort podróży.", image: "https://images.unsplash.com/photo-1603386329225-868f9b1ee6c9?auto=format&fit=crop&w=3840&q=95" },
+  { id: "04", title: "Powłoka ceramiczna", description: "Zapytaj o dostępność i dobór zabezpieczenia do stanu lakieru.", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=3840&q=95" },
 ];
 
 export const faqs = [
