@@ -433,3 +433,22 @@
 /* Przycisk „Poproś o wycenę” w czacie — spójny z czerwonym motywem */
 .quote-form button,.quote-form .quote-submit,.quote-submit{background:#b81725!important;background-image:linear-gradient(135deg,#c51b2b,#8f111c)!important;color:#fff!important;border:1px solid #e32936!important;}
 .quote-form button:hover,.quote-form .quote-submit:hover,.quote-submit:hover{background:#e32636!important;color:#fff!important;border-color:#e32636!important;}
+
+
+/* Czat: przycisk „Poproś o wycenę” ma być czarny, czerwony efekt dopiero po najechaniu */
+.chat-panel .quick-questions button.quote-shortcut,
+.chat-panel .quick-questions button.quote-shortcut:visited{
+  background:#111!important;
+  background-image:none!important;
+  color:#f2f2f2!important;
+  border:1px solid #484848!important;
+  box-shadow:none!important;
+}
+.chat-panel .quick-questions button.quote-shortcut:hover,
+.chat-panel .quick-questions button.quote-shortcut:focus-visible{
+  background:#171717!important;
+  background-image:linear-gradient(135deg,rgba(227,38,54,.22),rgba(143,17,28,.12))!important;
+  color:#fff!important;
+  border-color:#e32636!important;
+  box-shadow:0 0 16px rgba(227,38,54,.18)!important;
+}
