@@ -428,3 +428,8 @@
 
 /* Usunięcie przycisku „na górę” */
 .premium-back-top{display:none!important}
+
+
+/* Przycisk „Poproś o wycenę” w czacie — spójny z czerwonym motywem */
+.quote-form button,.quote-form .quote-submit,.quote-submit{background:#b81725!important;background-image:linear-gradient(135deg,#c51b2b,#8f111c)!important;color:#fff!important;border:1px solid #e32936!important;}
+.quote-form button:hover,.quote-form .quote-submit:hover,.quote-submit:hover{background:#e32636!important;color:#fff!important;border-color:#e32636!important;}
