@@ -38,7 +38,7 @@ export default function OwnerPanel() {
   const [category, setCategory] = useState("Realizacje");
   const [notice, setNotice] = useState("");
   useEffect(() => {
-    try { const raw = localStorage.getItem("unlim-owner-panel-v1"); if (raw) setData({ ...defaults, ...JSON.parse(raw) }); } catch {}
+    try { const raw = localStorage.getItem("unlim-owner-panel-v1"); if (raw) { const stored = JSON.parse(raw); const storedPhotos: Photo[] = Array.isArray(stored.photos) ? stored.photos : []; const mergedPhotos = [...storedPhotos, ...defaults.photos.filter(photo => !storedPhotos.some(savedPhoto => savedPhoto.id === photo.id))]; setData({ ...defaults, ...stored, photos: mergedPhotos }); } } catch {}
     setLoaded(true);
   }, []);
   const patch = (next: Partial<Data>) => setData(current => ({ ...current, ...next }));
