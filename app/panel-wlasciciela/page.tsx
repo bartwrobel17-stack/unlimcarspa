@@ -6,9 +6,12 @@ type Service = { id: string; title: string; price: string; active: boolean; imag
 type Data = { photos: Photo[]; services: Service[]; tasks: { id: number; text: string; done: boolean }[]; phone: string; booking: string; instagram: string };
 const defaults: Data = {
   photos: [
-    { id: 1, title: "Lakier w świetle", url: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=1200&q=85", category: "Lakier" },
-    { id: 2, title: "Ciemne wykończenie", url: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=1200&q=85", category: "Połysk" },
-    { id: 3, title: "Sportowa sylwetka", url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=85", category: "Realizacje" }
+    { id: 1, title: "Czerwone sportowe auto", url: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=2400&q=90", category: "Połysk" },
+    { id: 2, title: "Ciemna linia nadwozia", url: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?auto=format&fit=crop&w=2400&q=90", category: "Lakier" },
+    { id: 3, title: "Sportowa sylwetka", url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", category: "Połysk" },
+    { id: 4, title: "Sportowe auto — detal", url: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2400&q=90", category: "Połysk" },
+    { id: 5, title: "Detale wnętrza premium", url: "https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=2400&q=90", category: "Wnętrze" },
+    { id: 6, title: "Wykończenie wnętrza auta", url: "https://images.unsplash.com/photo-1502161254066-6c74afbf07aa?auto=format&fit=crop&w=2400&q=90", category: "Wnętrze" }
   ],
   services: [
     { id: "01", title: "Pielęgnacja auta", price: "", active: true, image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=85" },
